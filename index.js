@@ -2,6 +2,8 @@ const { request, response } = require('express')
 const express = require('express')
 const { token } = require('morgan')
 const app=express()
+const cors=require('cors')
+app.use(cors())
 const morgan = require('morgan')
 const cors=require ('cors')
 app.use(cors())
@@ -39,10 +41,17 @@ app.use(morgan(function (tokens, req, res) {
     JSON.stringify(req.body)
   ].join(' ')
 }))
+<<<<<<< HEAD
 
 app.get('/',(request,response)=> {
   response.send('<h1>This is index page')
 })
+=======
+app.get('/api/persons', (request, response) => {
+  response.send('<h1>Server Running</h1>')
+})
+
+>>>>>>> aa5ce089cf400d521dc19a80a4cb036115a5f13e
 app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
