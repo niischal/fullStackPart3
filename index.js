@@ -3,6 +3,8 @@ const express = require('express')
 const { token } = require('morgan')
 const app=express()
 const morgan = require('morgan')
+const cors=require ('cors')
+app.use(cors())
 let persons = [
     { 
       "id": 1,
@@ -38,7 +40,9 @@ app.use(morgan(function (tokens, req, res) {
   ].join(' ')
 }))
 
-
+app.get('/',(request,response)=> {
+  response.send('<h1>This is index page')
+})
 app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
@@ -79,5 +83,7 @@ app.post('/api/persons',(request,response) => {
   }
 })
 
-const PORT = 3001 
-app.listen(PORT)
+const PORT = process.env.PORT || 3001 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
