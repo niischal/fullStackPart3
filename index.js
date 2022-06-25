@@ -1,10 +1,13 @@
 const { request, response } = require('express')
 const express = require('express')
 const { token } = require('morgan')
-const app=express()
 const cors=require('cors')
-app.use(cors())
 const morgan = require('morgan')
+
+const app=express()
+
+
+
 
 let persons = [
     { 
@@ -28,8 +31,8 @@ let persons = [
       "number": "39-23-6423122"
     }
 ]
-
-app.use(express.json())
+app.use(cors())
+app.use(express.static('build'))
 app.use(morgan(function (tokens, req, res) {
   return [
     tokens.method(req, res),
@@ -41,6 +44,9 @@ app.use(morgan(function (tokens, req, res) {
   ].join(' ')
 }))
 
+app.get ('/',(request,response) => {
+  response.send('<h1>PhoneBook</h1>')
+})
 
 app.get('/api/persons', (request, response) => {
     response.json(persons)
