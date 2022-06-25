@@ -8,7 +8,7 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push heroku main",
-    "build:ui": "rm build -r &&  cd ../fullStackPart2/phonebook && npm install && copy build -r ../../fullStackPart3"
+    "build:ui": "rm build -r &&  cd ../fullStackPart2/phonebook && npm install && copy build ../../fullStackPart3 -r"
   },
   "repository": {
     "type": "git",
