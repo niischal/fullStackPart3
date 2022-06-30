@@ -1,4 +1,4 @@
-GET http://localhost:3001/favicon.ico
+GET http://localhost:3001
 
 ###
 DELETE http://localhost:3001/api/persons/1
@@ -9,5 +9,16 @@ Content-Type: application/json
 
 {
     "name": "Liisa Marttinen", 
+    "number": "39-23-6423122"
+}
+
+###
+GET http://localhost:3001/info
+
+###
+PUT http://localhost:3001/api/persons/62bc5c59fcc4562fa5e732d9
+Content-Type: application/json
+
+{
     "number": "39-23-6423122"
 }
