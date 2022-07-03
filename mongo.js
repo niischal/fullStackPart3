@@ -16,14 +16,14 @@ if (process.argv.length < 3){
 } else if (process.argv.length === 3) {
     mongoose
         .connect(url)
-        .then(()=>{
+        .then(() => {
             Person.find({}).then(result => {
                 result.forEach(person => {
-                console.log(person)
+                    console.log(person)
+                })
+                mongoose.connection.close()
+            })
         })
-        mongoose.connection.close()
-      })
-    })
 } else {
     mongoose
         .connect(url)
@@ -40,5 +40,5 @@ if (process.argv.length < 3){
             console.log('Saved')
             return mongoose.connection.close()
         })
-        .catch((err)=> console.log(err))
+        .catch((err) => console.log(err))
 }
